@@ -21,7 +21,7 @@ check() { # check <nom> <commande...>
 
 # 1. Le binaire existe et le gel est épinglé dans le contrat.
 [ -x "$BIN" ] || { echo "FAIL - binaire introuvable : $BIN" >&2; exit 1; }
-grep -q '"pinned_codex_commit": "27fcd7cbedd7efd63fd704bd01a0cfe1d7b85a26"' "$ADAPTER/contract.json" \
+grep -q '"pinned_codex_commit": *"27fcd7cbedd7efd63fd704bd01a0cfe1d7b85a26"' "$ADAPTER/contract.json" \
   && echo "ok - gel épinglé 27fcd7c dans le contrat" \
   || { echo "FAIL - gel non épinglé dans le contrat" >&2; FAIL=1; }
 
